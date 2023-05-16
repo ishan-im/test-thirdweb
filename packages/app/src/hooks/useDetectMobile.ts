@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 
 const getMobileDetect = (userAgent: NavigatorID['userAgent']) => {
     const isAndroid = () => Boolean(userAgent.match(/Android/i))
-    const isIos = () => Boolean(userAgent.match(/iPhone|iPad|iPod/i))
+  const isIos = () => Boolean(userAgent.match(/iPhone|iPad|iPod/i));
     const isOpera = () => Boolean(userAgent.match(/Opera Mini/i))
     const isWindows = () => Boolean(userAgent.match(/IEMobile/i))
     const isSSR = () => Boolean(userAgent.match(/SSR/i))
@@ -17,7 +17,7 @@ const getMobileDetect = (userAgent: NavigatorID['userAgent']) => {
     }
 }
 const useDetectMobile = () => {
-    useEffect(() => {}, [])
+    useEffect(() => { }, [])
     const userAgent = typeof navigator === 'undefined' ? 'SSR' : navigator.userAgent
     return getMobileDetect(userAgent)
 }

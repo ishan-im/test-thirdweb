@@ -24,7 +24,7 @@ const App: React.FC = () => {
 			<TopBar/>
 			<Page>
 				<Suspense fallback={<LoadingPage/>}>
-					<Switch>
+          <Switch>
 						<Route path="/" exact>
 							<Home/>
 						</Route>
