@@ -93,8 +93,10 @@ const Navigation = () => {
               <span>Testnet</span>
             </StyledLink>
           </StyledMenuListItem>
-          <StyledMenuListItem soon isActive={false}>
-            <StyledLink to="/">
+          <StyledMenuListItem  onClick={() => setIsOpen(false)}
+            isActive={pathname.startsWith("/marketplace") && true}
+            >
+            <StyledLink to="/marketplace">
               <StyledLinkIcon
                 loading="lazy"
                 src={my_collection}

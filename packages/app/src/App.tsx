@@ -26,6 +26,15 @@ const TermsOfService = lazy(() =>
     default: module.default,
   }))
 );
+
+
+const MarketPlace = lazy(() =>
+  import("./views/MarketPlace").then((module) => ({	
+	default: module.default 
+ }))	
+);
+
+
 const PrivacyPolicy = lazy(() =>
   import("./views/PrivacyPolicy").then((module) => ({
     default: module.default,
@@ -43,6 +52,8 @@ const SubscriptionWithAuth = withConnectedWallet(Subscription, {
 });
 const StoreWithAuth = withConnectedWallet(Store, { metas: metas.storeMeta });
 const BridgeWithAuth = withConnectedWallet(Bridge, { metas: metas.storeMeta });
+
+const MarketPlaceWithAuth = withConnectedWallet(MarketPlace, { metas: metas.marketPlaceMeta });
 
 const App: React.FC = () => {
 	return (
@@ -62,6 +73,9 @@ const App: React.FC = () => {
 						</Route>
 						<Route path="/store/:storeState(cards|boosterpacks)?">
 							<StoreWithAuth/>
+						</Route>
+						<Route path="/marketplace/:marketPlaceState(buyNfts|sellNfts)?">
+							<MarketPlace/>
 						</Route>
 						<Route path='/terms-of-service' component={TermsOfService} />
 						<Route path='/privacy-policy' component={PrivacyPolicy} />
