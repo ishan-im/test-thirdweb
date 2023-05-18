@@ -56,40 +56,40 @@ const BridgeWithAuth = withConnectedWallet(Bridge, { metas: metas.storeMeta });
 const MarketPlaceWithAuth = withConnectedWallet(MarketPlace, { metas: metas.marketPlaceMeta });
 
 const App: React.FC = () => {
-	return (
-		<Providers>
-			<TopBar/>
-			<Page>
-				<Suspense fallback={<LoadingPage/>}>
-					<Switch>
-						<Route path="/" exact>
-							<Home/>
-						</Route>
-						<Route path="/staking">
-							<StakingWithAuth/>
-						</Route>
-						<Route path="/subscription">
-							<SubscriptionWithAuth/>
-						</Route>
-						<Route path="/store/:storeState(cards|boosterpacks)?">
-							<StoreWithAuth/>
-						</Route>
-						<Route path="/marketplace/:marketPlaceState(buyNfts|sellNfts)?">
-							<MarketPlace/>
-						</Route>
-						<Route path='/terms-of-service' component={TermsOfService} />
-						<Route path='/privacy-policy' component={PrivacyPolicy} />
-						<Route path={["/events", "/my-collection"]}>
-							<Error404 title='This page will be available soon👀'/>
-						</Route>
-						<Route component={Error404} />
-					</Switch>
-				</Suspense>
-			</Page>
-			<ScrollToTop/>
-		</Providers>
-	)
-}
+  return (
+    <Providers>
+      <TopBar />
+      <Page>
+        <Suspense fallback={<LoadingPage />}>
+          <Switch>
+            <Route path="/" exact>
+              <Home />
+            </Route>
+            <Route path="/staking">
+              <StakingWithAuth />
+            </Route>
+            <Route path="/bridge/:bridgeState(testnet|claim-ppblz|mint-pepemon-avatars|bid-on-pepesea)?">
+              <BridgeWithAuth />
+            </Route>
+            <Route path="/subscription">
+              <SubscriptionWithAuth />
+            </Route>
+            <Route path="/store/:storeState(cards|boosterpacks)?">
+              <StoreWithAuth />
+            </Route>
+            <Route path="/terms-of-service" component={TermsOfService} />
+            <Route path="/privacy-policy" component={PrivacyPolicy} />
+            <Route path={["/events", "/my-collection"]}>
+              <Error404 title="This page will be available soon👀" />
+            </Route>
+            <Route component={Error404} />
+          </Switch>
+        </Suspense>
+      </Page>
+      <ScrollToTop />
+    </Providers>
+  );
+};
 
 const Providers: React.FC<any> = ({ children }) => {
   return (
