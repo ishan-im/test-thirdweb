@@ -1,4 +1,8 @@
 {
     "editor.codeActionsOnSave": { "source.fixAll": true },
     "editor.formatOnSave": false,
+    "githubPullRequests.ignoredPullRequestBranches": [
+      "main"
+    ],
+    "dotenv.enableAutocloaking": false,
   } 
