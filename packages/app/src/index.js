@@ -16,19 +16,17 @@ document.onreadystatechange = function () {
     ReactDOM.render(
      <ThirdwebProvider
 			activeChain={{
-				chainId: 906090,
-				rpc: ['https://l2-pepechain-testnet-8uk55qlld4.t.conduit.xyz'],
-				nativeCurrency: {
-					decimals: 18,
-					name: 'pepETH',
-					symbol: 'PEPETH',
-				},
-				slug: 'conduit:pepechain-testnet-8uk55qlld4',
-				name: 'pepechain-testnet',
-				chain: 'pepechain-testnet',
-				testnet: true,
-				shortName: 'pepechain-testnet',
-			}}>
+			chainId:906090,
+			rpc:["https://l2-pepechain-testnet-8uk55qlld4.t.conduit.xyz"],
+			nativeCurrency:{
+				name:"pepechain-testnet",
+				symbol:"PEPETH",
+				decimals:18,
+			},
+			slug:"conduit:pepechain-testnet-8uk55qlld4",
+			testnet:true,
+			chain:"pepechain-testnet",
+		}}>
         <App/>
         </ThirdwebProvider>,
 
